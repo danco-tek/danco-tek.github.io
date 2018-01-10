@@ -156,7 +156,7 @@
         });
 
         // Tell the PicoBoard to send a input data every 50ms
-        var pingCmd = new Uint8Array(1);
+        var pingCmd = new Uint8Array(3);
         //x=78
         //$x\n
         //CMD_UD_HEAD + message + CMD_UD_LINE
