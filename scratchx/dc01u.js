@@ -134,16 +134,17 @@
         // That will get us back here next time a device is connected.
         device = potentialDevices.shift();
         
-         console.log('tryNextDevice:');
+         //console.log('tryNextDevice:');
         
         if (!device) return;
 
         device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
+        
         device.set_receive_handler(function(data) {
             //$D
             console.log('Received: ' + data.byteLength);
             
-            if(!rawData || rawData.byteLength == 18) rawData = new Uint8Array(data);
+            if(!rawData || rawData.byteLength == 2) rawData = new Uint8Array(data);
             else rawData = appendBuffer(rawData, data);
 
             if(rawData.byteLength >= 2) {
@@ -156,7 +157,7 @@
         // Tell the PicoBoard to send a input data every 50ms
         var pingCmd = new Uint8Array(1);
         //x=78?
-        pingCmd[0] = 78;
+        pingCmd[0] = 0x78;
         poller = setInterval(function() {
             device.send(pingCmd.buffer);
         }, 50);
@@ -206,6 +207,6 @@
         url: '/info/help/studio/tips/ext/PicoBoard/'
     };
     
-    ScratchExtensions.register('DC01U', descriptor, ext, {type: 'serial'});
+    ScratchExtensions.register('DC-01U', descriptor, ext, {type: 'serial'});
     
 })({});
