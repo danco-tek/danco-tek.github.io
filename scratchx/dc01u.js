@@ -160,6 +160,7 @@
         pingCmd[0] = 0x78;
         poller = setInterval(function() {
             device.send(pingCmd.buffer);
+              console.log('Send: ' +pingCmd);
         }, 50);
         
         watchdog = setTimeout(function() {
