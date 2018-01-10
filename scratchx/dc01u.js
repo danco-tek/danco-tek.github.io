@@ -123,6 +123,7 @@
         potentialDevices.push(dev);
 
         if (!device) {
+            console.log('!device');
             tryNextDevice();
         }
     }
@@ -171,6 +172,7 @@
            // device.set_receive_handler(null);
             device.close();
             device = null;
+            console.log('tryNextDevice:');
             tryNextDevice();
         }, 250);
     };
