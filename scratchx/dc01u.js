@@ -163,7 +163,7 @@
         //var string = new TextDecoder("utf-8").decode(uint8array);
         pingCmd[0] = 0x78;
         poller = setInterval(function() {
-            console.log('Send: ' +new TextDecoder("utf-8").decode(pingCmd));
+            console.log('Send: ' +String.fromCharCode(pingCmd));
             device.send(pingCmd.buffer);
         }, 50);
         
