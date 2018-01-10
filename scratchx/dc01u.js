@@ -139,7 +139,7 @@
         
         if (!device) return;
 
-        device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
+        device.open({ stopBits: 0, bitRate: 9600, ctsFlowControl: 0 });
         
         device.set_receive_handler(function(data) {
             //$D
