@@ -133,6 +133,9 @@
         // If potentialDevices is empty, device will be undefined.
         // That will get us back here next time a device is connected.
         device = potentialDevices.shift();
+        
+         console.log('tryNextDevice:');
+        
         if (!device) return;
 
         device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
