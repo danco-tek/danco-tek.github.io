@@ -158,10 +158,13 @@
         // Tell the PicoBoard to send a input data every 50ms
         var pingCmd = new Uint8Array(1);
         //x=78?
+        //
+        //var uint8array = new TextEncoder("utf-8").encode("¢");
+        //var string = new TextDecoder("utf-8").decode(uint8array);
         pingCmd[0] = 0x78;
         poller = setInterval(function() {
+            console.log('Send: ' +new TextDecoder("utf-8").decode(pingCmd));
             device.send(pingCmd.buffer);
-              console.log('Send: ' +pingCmd.byteLength);
         }, 50);
         
         watchdog = setTimeout(function() {
