@@ -164,7 +164,7 @@
         pingCmd[1] = 0x78;
         pingCmd[2] = 0x10;
         poller = setInterval(function() {
-            console.log('Send: ' +String.fromCharCode(pingCmd));
+            console.log('Send: ' +String.fromCharCode(pingCmd[0])+String.fromCharCode(pingCmd[1])+String.fromCharCode(pingCmd[2]));
             device.send(pingCmd.buffer);
         }, 50);
         
