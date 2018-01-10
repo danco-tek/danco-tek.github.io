@@ -163,7 +163,7 @@
             // If we get good data then we'll terminate this watchdog.
             clearInterval(poller);
             poller = null;
-            device.set_receive_handler(null);
+           // device.set_receive_handler(null);
             device.close();
             device = null;
             tryNextDevice();
