@@ -161,7 +161,7 @@
         device.open({stopBits: 0,bitRate: 115200,ctsFlowControl: 0}, deviceOpened);
         */
         
-            device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 });
+            device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
             console.log('connection with ' + device.id);
         
         str = JSON.stringify(device);
