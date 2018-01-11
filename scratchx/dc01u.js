@@ -151,10 +151,16 @@
             tryNextDevice();
             return;
         }
-        device.set_receive_handler('demo', function (data) {
+            
+        device.set_receive_handler(function (data) {
             //processData(data);
              console.log('Received: ' + data.byteLength);
         });
+            /*
+        device.set_receive_handler('demo', function (data) {
+            //processData(data);
+             console.log('Received: ' + data.byteLength);
+        });*/
         };
         
         device.open({stopBits: 0,bitRate: 115200,ctsFlowControl: 0}, deviceOpened);
