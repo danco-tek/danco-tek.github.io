@@ -146,11 +146,11 @@
         function deviceOpened(dev) {
         
         console.log('deviceOpened:');
-        /*
+        
         if (!dev) {
             tryNextDevice();
             return;
-        }*/
+        }
             
         device.set_receive_handler(function (data) {
             //processData(data);
