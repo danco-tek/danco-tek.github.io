@@ -142,21 +142,15 @@
         //console.log('tryNextDevice:');
 
         if (!device) return;
-
+/*
         function deviceOpened(dev) {
         
         console.log('deviceOpened:');
         
-            /*
         if (!dev) {
             tryNextDevice();
             return;
-        }*/
-            /*
-        device.set_receive_handler(function (data) {
-            //processData(data);
-             console.log('Received: ' + data.byteLength);
-        });*/
+        }
             
         device.set_receive_handler('DC-01U', function (data) {
             //processData(data);
@@ -165,6 +159,16 @@
         };
         
         device.open({stopBits: 0,bitRate: 115200,ctsFlowControl: 0}, deviceOpened);
+        */
+        
+            device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 });
+    console.log('connection with ' + device.id);
+    device.set_receive_handler(function(data) {
+      var inputData = new Uint8Array(data);
+      console.log("Input Data:");
+      console.log(inputData);
+     // processInput(inputData);
+    });
 
         //device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
 /*
@@ -195,7 +199,7 @@
             console.log('Send: ' +String.fromCharCode(pingCmd[0])+String.fromCharCode(pingCmd[1])+String.fromCharCode(pingCmd[2]));
             device.send(pingCmd.buffer);
         }, 50);
-       
+       */
 
         watchdog = setTimeout(function () {
             // This device didn't get good data in time, so give up on it. Clean up and then move on.
@@ -208,7 +212,7 @@
             console.log('tryNextDevice:');
             tryNextDevice();
         }, 2500); 
-        */
+        
     };
 
 
