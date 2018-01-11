@@ -128,7 +128,8 @@
             tryNextDevice();
         }
     }
-
+    
+    
 
     var poller = null;
     var watchdog = null;
@@ -142,6 +143,19 @@
 
         if (!device) return;
 
+        function deviceOpened(dev) {
+        
+        console.log('deviceOpened:');
+        /*
+        if (!dev) {
+            tryNextDevice();
+            return;
+        }
+        device.set_receive_handler('demo', function (data) {
+            processData(data);
+        });*/
+        };
+        
         device.open({
             stopBits: 0,
             bitRate: 115200,
@@ -193,18 +207,7 @@
     };
 
 
-    function deviceOpened(dev) {
-        
-        console.log('deviceOpened:');
-        /*
-        if (!dev) {
-            tryNextDevice();
-            return;
-        }
-        device.set_receive_handler('demo', function (data) {
-            processData(data);
-        });*/
-    };
+
     ext._deviceRemoved = function (dev) {
         if (device != dev) return;
         if (poller) poller = clearInterval(poller);
