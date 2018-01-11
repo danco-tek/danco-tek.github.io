@@ -162,7 +162,12 @@
         */
         
             device.open({ stopBits: 0, bitRate: 57600, ctsFlowControl: 0 });
-    console.log('connection with ' + device.id);
+            console.log('connection with ' + device.id);
+        
+        str = JSON.stringify(device);
+        console.log(str);
+        
+        
     device.set_receive_handler(function(data) {
       var inputData = new Uint8Array(data);
       console.log("Input Data:");
