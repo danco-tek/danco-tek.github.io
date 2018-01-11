@@ -151,11 +151,11 @@
             tryNextDevice();
             return;
         }
-            
+            /*
         device.set_receive_handler(function (data) {
             //processData(data);
              console.log('Received: ' + data.byteLength);
-        });
+        });*/
             /*
         device.set_receive_handler('demo', function (data) {
             //processData(data);
@@ -166,7 +166,7 @@
         device.open({stopBits: 0,bitRate: 115200,ctsFlowControl: 0}, deviceOpened);
 
         //device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
-/*
+
         device.set_receive_handler(function (data) {
             //$D
             console.log('Received: ' + data.byteLength);
@@ -180,7 +180,7 @@
                 //device.send(pingCmd.buffer);
             }
         });
-
+/*
         
         // Tell the PicoBoard to send a input data every 50ms
         var pingCmd = new Uint8Array(3);
