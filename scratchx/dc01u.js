@@ -194,7 +194,7 @@
             console.log('Send: ' +String.fromCharCode(pingCmd[0])+String.fromCharCode(pingCmd[1])+String.fromCharCode(pingCmd[2]));
             device.send(pingCmd.buffer);
         }, 50);
-        */
+       
 
         watchdog = setTimeout(function () {
             // This device didn't get good data in time, so give up on it. Clean up and then move on.
@@ -206,7 +206,8 @@
             device = null;
             console.log('tryNextDevice:');
             tryNextDevice();
-        }, 2500);
+        }, 2500); 
+        */
     };
 
 
