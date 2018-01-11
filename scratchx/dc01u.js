@@ -156,17 +156,17 @@
             //processData(data);
              console.log('Received: ' + data.byteLength);
         });*/
-            /*
-        device.set_receive_handler('demo', function (data) {
+            
+        device.set_receive_handler('DC-01U', function (data) {
             //processData(data);
              console.log('Received: ' + data.byteLength);
-        });*/
+        });
         };
         
         device.open({stopBits: 0,bitRate: 115200,ctsFlowControl: 0}, deviceOpened);
 
         //device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
-
+/*
         device.set_receive_handler(function (data) {
             //$D
             console.log('Received: ' + data.byteLength);
@@ -179,7 +179,7 @@
                 processData();
                 //device.send(pingCmd.buffer);
             }
-        });
+        });*/
 /*
         
         // Tell the PicoBoard to send a input data every 50ms
