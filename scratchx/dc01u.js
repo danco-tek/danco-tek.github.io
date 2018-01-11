@@ -139,7 +139,9 @@
         
         if (!device) return;
 
-        device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
+        device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 },deviceOpened);
+        
+         //device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
         
         device.set_receive_handler(function(data) {
             //$D
@@ -155,6 +157,7 @@
             }
         });
 
+        /*
         // Tell the PicoBoard to send a input data every 50ms
         var pingCmd = new Uint8Array(3);
         //x=78
@@ -167,6 +170,7 @@
             console.log('Send: ' +String.fromCharCode(pingCmd[0])+String.fromCharCode(pingCmd[1])+String.fromCharCode(pingCmd[2]));
             device.send(pingCmd.buffer);
         }, 50);
+        */
         
         watchdog = setTimeout(function() {
             // This device didn't get good data in time, so give up on it. Clean up and then move on.
@@ -178,7 +182,7 @@
             device = null;
             console.log('tryNextDevice:');
             tryNextDevice();
-        }, 250);
+        }, 2500);
     };
     
 
